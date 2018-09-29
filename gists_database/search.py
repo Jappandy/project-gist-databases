@@ -2,7 +2,6 @@ from .models import Gist
 
 def search_gists(db_connection, **kwargs):
     query = 'SELECT * FROM gists'
-    
     result = []
     params = {}
     
