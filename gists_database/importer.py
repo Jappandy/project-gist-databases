@@ -21,6 +21,7 @@ def import_gists_to_database(db, username, commit=True):
     response.raise_for_status()
     gist_dump = response.json()
 
+
     for gist in gist_dump:
         gist_params = {
             "github_id": gist['id'],

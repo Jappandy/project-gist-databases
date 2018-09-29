@@ -17,6 +17,7 @@ def search_gists(db_connection, **kwargs):
             query += ' WHERE {git_name} = :value AND'.format(git_name)
             params.update({'value' : value})
     
+    
     query = query.rstrip(' AND')
     cursor = db_connection.execute(query, params)
         
