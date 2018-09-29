@@ -24,4 +24,4 @@ def search_gists(db_connection, **kwargs):
     for gist in cursor:
         result.append(Gist(gist))
     
-        return result
+    return result
