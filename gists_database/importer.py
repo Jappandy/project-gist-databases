@@ -1,8 +1,6 @@
 import requests
 
-
-def import_gists_to_database(db, username, commit=True):
-    GIST_QUERY = """INSERT INTO gists (
+GIST_QUERY = """INSERT INTO gists (
     "github_id", "html_url", "git_pull_url",
     "git_push_url", "commits_url",
     "forks_url", "public", "created_at",
@@ -14,8 +12,10 @@ def import_gists_to_database(db, username, commit=True):
     :comments, :comments_url
 );"""
 
-    URL = 'https://api.github.com/users/{username}/gists'
+URL = 'https://api.github.com/users/{username}/gists'
 
+
+def import_gists_to_database(db, username, commit=True):
     resp = requests.get(URL.format(username=username))
     resp.raise_for_status()
 
