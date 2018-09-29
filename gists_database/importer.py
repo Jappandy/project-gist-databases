@@ -1,4 +1,5 @@
 import requests
+import sqlite3
 
 QUERY = '''INSERT INTO gists (
                         github_id, html_url, git_pull_url, git_push_url, 
@@ -12,8 +13,9 @@ QUERY = '''INSERT INTO gists (
                         
 URL = 'https://api.github.com/users/{username}/gists'
 
+
 def import_gists_to_database(db, username, commit=True):
-    
+
     response = requests.get(URL.format(username=username))
 
     response.raise_for_status()
